@@ -45,12 +45,12 @@ const Navigation = () => {
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-orange/20">
       <div className="flex items-center justify-center px-4 py-3">
-        <div className="flex items-center space-x-1 sm:space-x-4">
+        <div className="flex items-center justify-between w-full max-w-md sm:space-x-4 sm:justify-center sm:max-w-none">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg transition-all duration-200 font-medium text-sm sm:text-base ${
+              className={`flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 rounded-lg transition-all duration-200 font-medium text-sm sm:text-base ${
                 pathname === item.href
                   ? 'bg-orange text-cream shadow-lg'
                   : 'text-foreground hover:bg-orange/10 hover:text-orange'
@@ -62,7 +62,11 @@ const Navigation = () => {
                 </span>
               )}
               <span className="hidden sm:inline">{item.label}</span>
-              <span className="sm:hidden text-xs">{item.label}</span>
+              {item.icon ? (
+                <span className="sm:hidden sr-only">{item.label}</span>
+              ) : (
+                <span className="sm:hidden text-base font-medium">{item.label}</span>
+              )}
             </Link>
           ))}
         </div>

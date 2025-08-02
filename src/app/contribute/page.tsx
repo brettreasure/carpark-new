@@ -52,7 +52,7 @@ export default function Contribute() {
               
               <div>
                 <label htmlFor="reviewLink" className="block text-sm font-medium text-dark-green mb-2">
-                  Google Review link
+                  The review&apos;s Share link from Google Maps
                 </label>
                 <input
                   type="url"
@@ -66,7 +66,7 @@ export default function Contribute() {
               
               <div>
                 <label htmlFor="comment" className="block text-sm font-medium text-dark-green mb-2">
-                  Your comment (maximum 250 words, optional)
+                  Your comment (optional; 250 words max.)
                 </label>
                 <textarea
                   id="comment"
@@ -87,7 +87,7 @@ export default function Contribute() {
                   className="w-5 h-5 text-blue-gray border-2 border-blue-gray/20 rounded focus:ring-blue-gray"
                 />
                 <label htmlFor="credit" className="text-sm font-medium text-dark-green">
-                  Want a credit? (yes or no)
+                  Yes, I want a credit
                 </label>
               </div>
               

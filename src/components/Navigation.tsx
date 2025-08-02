@@ -1,89 +1,72 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 const Navigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
   const navItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/downloads', label: 'Downloads' },
-    { href: '/contribute', label: 'Contribute' },
-    { href: '/contact', label: 'Contact' },
+    { 
+      href: '/', 
+      label: 'Home',
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+      )
+    },
+    { 
+      href: '/about', 
+      label: 'About',
+      icon: null
+    },
+    { 
+      href: '/contribute', 
+      label: 'Share',
+      icon: null
+    },
+    { 
+      href: '/downloads', 
+      label: 'Review',
+      icon: null
+    },
+    { 
+      href: '/contact', 
+      label: 'Contact',
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      )
+    },
   ];
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-orange/20">
-      {/* Desktop Navigation */}
-      <div className="hidden md:flex items-center justify-center px-6 py-4">
-        <div className="flex space-x-8">
+      <div className="flex items-center justify-center px-4 py-3">
+        <div className="flex items-center space-x-1 sm:space-x-4">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`px-4 py-2 rounded-lg transition-all duration-200 font-medium ${
+              className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 rounded-lg transition-all duration-200 font-medium text-sm sm:text-base ${
                 pathname === item.href
                   ? 'bg-orange text-cream shadow-lg'
                   : 'text-foreground hover:bg-orange/10 hover:text-orange'
               }`}
             >
-              {item.label}
+              {item.icon && (
+                <span className="flex-shrink-0">
+                  {item.icon}
+                </span>
+              )}
+              <span className="hidden sm:inline">{item.label}</span>
+              <span className="sm:hidden text-xs">{item.label}</span>
             </Link>
           ))}
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      <div className="md:hidden flex items-center justify-between px-4 py-4">
-        <div className="flex-1" />
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="relative w-8 h-8 flex flex-col justify-center items-center space-y-1.5 z-50"
-          aria-label="Toggle navigation menu"
-        >
-          <span
-            className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
-              isOpen ? 'rotate-45 translate-y-2' : ''
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
-              isOpen ? 'opacity-0' : ''
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 bg-foreground transition-all duration-300 ${
-              isOpen ? '-rotate-45 -translate-y-2' : ''
-            }`}
-          />
-        </button>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm z-40">
-          <div className="flex flex-col items-center justify-center h-full space-y-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className={`text-2xl font-medium transition-all duration-200 ${
-                  pathname === item.href
-                    ? 'text-orange'
-                    : 'text-foreground hover:text-orange'
-                }`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

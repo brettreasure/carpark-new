@@ -22,6 +22,15 @@ CREATE TABLE IF NOT EXISTS contributions (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+-- Table for contact form submissions
+CREATE TABLE IF NOT EXISTS contact_messages (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
 -- Add indexes for performance
 CREATE INDEX IF NOT EXISTS idx_downloaders_email ON downloaders(email);
 CREATE INDEX IF NOT EXISTS idx_downloaders_verification_token ON downloaders(verification_token);
@@ -31,6 +40,7 @@ CREATE INDEX IF NOT EXISTS idx_contributions_created_at ON contributions(created
 -- Add Row Level Security (RLS)
 ALTER TABLE downloaders ENABLE ROW LEVEL SECURITY;
 ALTER TABLE contributions ENABLE ROW LEVEL SECURITY;
+ALTER TABLE contact_messages ENABLE ROW LEVEL SECURITY;
 
 -- Allow public read access to view their own records
 CREATE POLICY "Users can view their own downloader records" ON downloaders
@@ -46,6 +56,13 @@ CREATE POLICY "Users can view contributions" ON contributions
 FOR SELECT USING (TRUE);
 
 CREATE POLICY "Users can insert contributions" ON contributions
+FOR INSERT WITH CHECK (TRUE);
+
+-- Policies for contact messages
+CREATE POLICY "Users can view contact messages" ON contact_messages
+FOR SELECT USING (TRUE);
+
+CREATE POLICY "Users can insert contact messages" ON contact_messages
 FOR INSERT WITH CHECK (TRUE);
 
 -- Create a function to validate Google Maps review links

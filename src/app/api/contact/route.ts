@@ -24,14 +24,25 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email notification using Resend
+    console.log('Starting email send process');
+    console.log('Environment check before send:', {
+      hasResend: !!resend,
+      emailFrom: EMAIL_FROM,
+      emailReplyTo: EMAIL_REPLY_TO,
+      hasApiKey: !!process.env.RESEND_API_KEY
+    });
+    
     const emailTemplate = createContactNotificationEmailTemplate(name, email, message);
 
     try {
       if (!resend) {
+        console.log('Resend client is null - throwing error');
         throw new Error('Email service not configured');
       }
       
-      await resend.emails.send({
+      console.log('About to call resend.emails.send');
+      
+      const result = await resend.emails.send({
         from: EMAIL_FROM,
         to: EMAIL_REPLY_TO,
         replyTo: email,
@@ -40,6 +51,8 @@ export async function POST(request: NextRequest) {
         text: emailTemplate.text,
       });
 
+      console.log('Email sent successfully:', result);
+      
       return NextResponse.json({
         message: 'Thank you for your message! We\'ll get back to you soon.',
       });

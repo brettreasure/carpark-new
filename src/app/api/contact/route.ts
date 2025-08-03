@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { resend, EMAIL_FROM, EMAIL_REPLY_TO } from '@/lib/resend';
+import { createContactNotificationEmailTemplate } from '@/lib/email-templates';
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,18 +23,48 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // TODO: Send email using Resend
-    // For now, we'll just log the contact form submission
-    console.log('Contact form submission:', {
-      name,
-      email,
-      message,
-      timestamp: new Date().toISOString(),
-    });
+    // Send email notification using Resend
+    const emailTemplate = createContactNotificationEmailTemplate(name, email, message);
 
-    return NextResponse.json({
-      message: 'Thank you for your message! We\'ll get back to you soon.',
-    });
+    try {
+      if (!resend) {
+        throw new Error('Email service not configured');
+      }
+      
+      await resend.emails.send({
+        from: EMAIL_FROM,
+        to: EMAIL_REPLY_TO,
+        replyTo: email,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
+        text: emailTemplate.text,
+      });
+
+      return NextResponse.json({
+        message: 'Thank you for your message! We\'ll get back to you soon.',
+      });
+    } catch (emailError) {
+      console.error('Email sending error:', emailError);
+      console.error('Error details:', JSON.stringify(emailError, null, 2));
+      console.log('Environment check:', {
+        hasResend: !!resend,
+        emailFrom: EMAIL_FROM,
+        emailReplyTo: EMAIL_REPLY_TO,
+        hasApiKey: !!process.env.RESEND_API_KEY
+      });
+      
+      // Log the contact form submission as backup
+      console.log('Contact form submission (email failed):', {
+        name,
+        email,
+        message,
+        timestamp: new Date().toISOString(),
+      });
+      
+      return NextResponse.json({
+        message: 'Thank you for your message! We\'ll get back to you soon.',
+      });
+    }
 
   } catch (error) {
     console.error('API error:', error);

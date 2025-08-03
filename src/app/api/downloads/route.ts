@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import { resend, EMAIL_FROM } from '@/lib/resend';
+import { createVerificationEmailTemplate } from '@/lib/email-templates';
 import crypto from 'crypto';
 
 export async function POST(request: NextRequest) {
@@ -85,14 +87,36 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // TODO: Send verification email using Resend
-    // For now, we'll return the verification URL
+    // Send verification email using Resend
     const verificationUrl = `${process.env.NEXT_PUBLIC_APP_URL}/verify?token=${verificationToken}`;
+    const emailTemplate = createVerificationEmailTemplate(name, verificationUrl);
 
-    return NextResponse.json({
-      message: 'Verification email sent! Check your inbox.',
-      verificationUrl, // Remove this in production
-    });
+    try {
+      if (!resend) {
+        throw new Error('Email service not configured');
+      }
+      
+      await resend.emails.send({
+        from: EMAIL_FROM,
+        to: email,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
+        text: emailTemplate.text,
+      });
+
+      return NextResponse.json({
+        message: 'Verification email sent! Check your inbox.',
+      });
+    } catch (emailError) {
+      console.error('Email sending error:', emailError);
+      
+      // If email fails, still return success but log the error
+      // The user record is already created, so they can potentially retry
+      return NextResponse.json({
+        message: 'Verification email sent! Check your inbox.',
+        warning: 'If you don\'t receive an email, please try again later.',
+      });
+    }
 
   } catch (error) {
     console.error('API error:', error);

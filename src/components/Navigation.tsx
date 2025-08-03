@@ -43,7 +43,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-orange/20">
+    <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm">
       <div className="flex items-center justify-center px-4 py-3">
         <div className="flex items-center justify-between w-full max-w-md sm:space-x-4 sm:justify-center sm:max-w-none">
           {navItems.map((item) => (

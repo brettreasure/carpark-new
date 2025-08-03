@@ -11,16 +11,16 @@ export default function Downloads() {
       <div className="container mx-auto px-6 py-12 max-w-2xl">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border-t-8 border-orange">
           <h1 className="text-4xl md:text-5xl font-bold text-dark-green mb-8 text-center">
-            Get Your Copy
+            Get the book
           </h1>
           
           <div className="prose prose-lg max-w-none text-foreground mb-8">
             <p className="text-xl leading-relaxed text-center">
-              Here&apos;s the deal. You can have an Advanced Review Copy of the book if you fill out the stupid form.
+              Here&apos;s the deal. You can have an Advance Reader Copy of the book if you fill out the stupid form.
             </p>
             
             <p className="text-center">
-              The second time it makes you laugh out loud I request you stop reading and write an honest review. You do that at goodreads.com or Amazon (if you buy books there). They like you to mention you got an Advance Review Copy.
+              The second time it makes you laugh out loud I request you stop reading and write an honest review. You do that at goodreads.com or Amazon (if you buy books there). They like you to mention you got an Advance Reader Copy.
             </p>
             
             <p className="text-center font-semibold text-orange">

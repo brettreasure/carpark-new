@@ -11,7 +11,7 @@ export default function Contribute() {
       <div className="container mx-auto px-6 py-12 max-w-2xl">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border-r-8 border-blue-gray">
           <h1 className="text-4xl md:text-5xl font-bold text-dark-green mb-8 text-center">
-            Share a Review
+            Share a review
           </h1>
           
           <div className="prose prose-lg max-w-none text-foreground mb-8">
@@ -76,7 +76,6 @@ export default function Contribute() {
                   className="w-full px-4 py-3 border-2 border-blue-gray/20 rounded-lg focus:border-blue-gray focus:outline-none transition-colors resize-none"
                   placeholder="Tell us about this review..."
                 />
-                <p className="text-sm text-blue-gray mt-1">250 characters remaining</p>
               </div>
               
               <div className="flex items-center space-x-3">

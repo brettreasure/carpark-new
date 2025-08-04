@@ -16,5 +16,5 @@ export const resend = {
   }
 };
 
-export const EMAIL_FROM = 'onboarding@resend.dev';
-export const EMAIL_REPLY_TO = 'treasure@freebeer.com.au';
+export const EMAIL_FROM = 'bret@stakesomething.com';
+export const EMAIL_REPLY_TO = 'bret@stakesomething.com';

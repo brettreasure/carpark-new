@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-const resendClient = new Resend(process.env.RESEND_API_KEY!);
+const resendClient = new Resend('re_6ApdTWuw_CmtZM88iB5vuhEehRjN5PNsP');
 
 // Wrapper with timeout for Resend calls
 export const resend = {
@@ -15,5 +15,5 @@ export const resend = {
   }
 };
 
-export const EMAIL_FROM = process.env.EMAIL_FROM!;
-export const EMAIL_REPLY_TO = process.env.EMAIL_REPLY_TO!;
+export const EMAIL_FROM = 'onboarding@resend.dev';
+export const EMAIL_REPLY_TO = 'treasure@freebeer.com.au';

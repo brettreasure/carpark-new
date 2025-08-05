@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
     let insertError;
     try {
       const result = await Promise.race([insertPromise, timeoutPromise]);
-      insertError = result.error;
+      insertError = (result as any)?.error;
     } catch (timeoutError) {
       console.error('Database operation timed out:', timeoutError);
       return NextResponse.json(

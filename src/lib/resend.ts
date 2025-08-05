@@ -1,7 +1,6 @@
 import { Resend } from 'resend';
 
-// Temporary hardcoded values for debugging
-const resendClient = new Resend('re_6ApdTWuw_CmtZM88iB5vuhEehRjN5PNsP');
+const resendClient = new Resend(process.env.RESEND_API_KEY!);
 
 // Wrapper with timeout for Resend calls
 export const resend = {
@@ -16,5 +15,5 @@ export const resend = {
   }
 };
 
-export const EMAIL_FROM = 'bret@stakesomething.com';
-export const EMAIL_REPLY_TO = 'bret@stakesomething.com';
+export const EMAIL_FROM = process.env.EMAIL_FROM!;
+export const EMAIL_REPLY_TO = process.env.EMAIL_REPLY_TO!;

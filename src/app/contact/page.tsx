@@ -65,16 +65,13 @@ export default function Contact() {
               No, incredibly, there is not yet a publisher. Suggest one.
             </p>
             
-            <p className="text-lg">
-              Yes, I perform for the media.
-            </p>
             
             <p className="text-lg">
               Yes, you can plonk a review here if you&apos;re too lazy to do it on Amazon.
             </p>
             
             <p className="text-lg font-semibold text-orange">
-              Contact me if you can help me fund-raise for Myanmar refugees.
+              Contact me if you want to help Myanmar refugee kids studying English.
             </p>
           </div>
           
@@ -148,7 +145,7 @@ export default function Contact() {
                 disabled={loading}
                 className="w-full bg-dark-green hover:bg-dark-green/90 disabled:bg-dark-green/50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
               >
-                {loading ? 'Sending...' : 'Send Message'}
+                {loading ? 'Sending...' : 'Send'}
               </button>
             </form>
           </div>

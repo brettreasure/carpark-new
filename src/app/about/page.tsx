@@ -38,7 +38,7 @@ export default function About() {
             <div className="text-center mt-8">
               <a 
                 href="/downloads" 
-                className="inline-block bg-orange hover:bg-orange/90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
+                className="inline-block bg-dark-green hover:bg-dark-green/90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
               >
                 Download it
               </a>

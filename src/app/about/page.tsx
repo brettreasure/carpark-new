@@ -35,9 +35,14 @@ export default function About() {
               Join FlibbyFlobby, Pants Magee, Bombshell Tans and GorillaWithAGun, as they swing from temper tantrum to &apos;I&apos;m Not Worthy&apos; adoration.
             </p>
             
-            <p className="text-center text-lg font-medium italic text-dark-green">
-              Seriously, I can&apos;t believe they said that.
-            </p>
+            <div className="text-center mt-8">
+              <a 
+                href="/downloads" 
+                className="inline-block bg-orange hover:bg-orange/90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
+              >
+                Download it
+              </a>
+            </div>
           </div>
           
           <div className="mt-12 bg-orange/10 rounded-2xl p-8 border-l-4 border-orange">

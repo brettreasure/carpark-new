@@ -58,7 +58,7 @@ export default function Downloads() {
           </h1>
           
           <div className="prose prose-lg max-w-none text-foreground mb-8">
-            <p className="text-xl leading-relaxed text-center">
+            <p className="text-xl leading-relaxed text-center mb-6">
               Join the list to trigger the download of an <span className="whitespace-nowrap">Advance Reader Copy</span>.
             </p>
             
@@ -116,7 +116,7 @@ export default function Downloads() {
                     disabled={loading}
                     className="w-full bg-orange hover:bg-orange/90 disabled:bg-orange/50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
                   >
-                    {loading ? 'Sending...' : 'REVEAL'}
+                    {loading ? 'REVEALING...' : 'REVEAL'}
                   </button>
                 </form>
               </>

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
-import { resend, EMAIL_FROM } from '@/lib/resend';
-import { createVerificationEmailTemplate } from '@/lib/email-templates';
+import { resend, EMAIL_FROM, EMAIL_REPLY_TO } from '@/lib/resend';
+import { createVerificationEmailTemplate, createDownloadRequestNotificationTemplate } from '@/lib/email-templates';
 import crypto from 'crypto';
 
 export async function POST(request: NextRequest) {
@@ -96,6 +96,7 @@ export async function POST(request: NextRequest) {
         throw new Error('Email service not configured');
       }
       
+      // Send verification email to user
       await resend.emails.send({
         from: EMAIL_FROM,
         to: email,
@@ -103,6 +104,25 @@ export async function POST(request: NextRequest) {
         html: emailTemplate.html,
         text: emailTemplate.text,
       });
+
+      // Send notification email to admin
+      try {
+        console.log('Sending download request notification...');
+        const notificationTemplate = createDownloadRequestNotificationTemplate(name, email, !!existingUser);
+        
+        await resend.emails.send({
+          from: EMAIL_FROM,
+          to: EMAIL_REPLY_TO,
+          subject: notificationTemplate.subject,
+          html: notificationTemplate.html,
+          text: notificationTemplate.text,
+          reply_to: email,
+        });
+        console.log('Download notification email sent successfully!');
+      } catch (notificationError) {
+        console.error('Notification email failed:', notificationError);
+        // Don't fail the request if notification fails
+      }
 
       return NextResponse.json({
         message: 'Verification email sent! Check your inbox.',

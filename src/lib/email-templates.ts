@@ -345,3 +345,108 @@ ${comment ? `Comment:\n${comment}\n` : ''}
 Submitted on ${new Date().toLocaleString()}
   `.trim()
 });
+
+export const createDownloadRequestNotificationTemplate = (name: string, email: string, isExistingUser: boolean) => ({
+  subject: `New download request from ${name}`,
+  html: `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Download Request</title>
+        <style>
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+          }
+          .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+          .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2d5a27;
+          }
+          .title {
+            color: #2d5a27;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #2d5a27;
+            padding: 20px;
+            margin: 20px 0;
+          }
+          .label {
+            font-weight: bold;
+            color: #2d5a27;
+            margin-bottom: 5px;
+          }
+          .value {
+            margin-bottom: 15px;
+          }
+          .status-badge {
+            display: inline-block;
+            background-color: ${isExistingUser ? '#e67e22' : '#28a745'};
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1 class="title">New Download Request</h1>
+          </div>
+          
+          <div class="info-box">
+            <div class="label">From:</div>
+            <div class="value">${name} <span class="status-badge">${isExistingUser ? 'Existing User' : 'New User'}</span></div>
+            
+            <div class="label">Email:</div>
+            <div class="value"><a href="mailto:${email}">${email}</a></div>
+            
+            <div class="label">Status:</div>
+            <div class="value">${isExistingUser ? 'Resent verification email to existing user' : 'Sent verification email to new user'}</div>
+          </div>
+          
+          <div class="footer">
+            <p>Requested on ${new Date().toLocaleString()}</p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `,
+  text: `
+New Download Request
+
+From: ${name}
+Email: ${email}
+Status: ${isExistingUser ? 'Existing User - Resent verification' : 'New User - Sent verification'}
+
+Requested on ${new Date().toLocaleString()}
+  `.trim()
+});

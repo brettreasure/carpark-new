@@ -54,20 +54,16 @@ export default function Downloads() {
       <div className="container mx-auto px-6 py-12 max-w-2xl">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border-t-8 border-orange">
           <h1 className="text-4xl md:text-5xl font-bold text-dark-green mb-8 text-center">
-            Get the book
+            Here's the deal
           </h1>
           
           <div className="prose prose-lg max-w-none text-foreground mb-8">
             <p className="text-xl leading-relaxed text-center">
-              Here&apos;s the deal. You can have an Advance Reader Copy of the book if you fill out the stupid form.
+              Join the list to trigger the download of an Advance Reader Copy.
             </p>
             
             <p className="text-center">
-              The second time it makes you laugh out loud I request you stop reading and write an honest review. You do that at goodreads.com or Amazon (if you buy books there). They like you to mention you got an Advance Reader Copy.
-            </p>
-            
-            <p className="text-center font-semibold text-orange">
-              Thank you so much.
+              The second time it makes you laugh out loud, stop laughing and write an honest review. You do that at goodreads.com or Amazon (if you buy books there). They like you to mention you got an ARC (Advance Reader Copy).
             </p>
           </div>
           
@@ -132,19 +128,9 @@ export default function Downloads() {
               </>
             ) : (
               <>
-                <h2 className="text-2xl font-bold text-dark-green mb-6 text-center">Thank you, {formData.name}!</h2>
+                <h2 className="text-4xl font-bold text-dark-green mb-8 text-center">Thank you so much!</h2>
                 
-                {message && (
-                  <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
-                    {message}
-                  </div>
-                )}
-                
-                <div className="text-center space-y-6">
-                  <p className="text-lg text-dark-green">
-                    Your advance reader copy is ready to download:
-                  </p>
-                  
+                <div className="text-center">
                   <button
                     onClick={() => {
                       // TODO: Replace with actual download link
@@ -152,12 +138,8 @@ export default function Downloads() {
                     }}
                     className="w-full bg-dark-green hover:bg-dark-green/90 text-white font-bold py-6 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-xl"
                   >
-                    📖 Download "Not bad for a carpark"
+                    Download "Not bad for a carpark"
                   </button>
-                  
-                  <p className="text-sm text-blue-gray">
-                    Remember: write an honest review after it makes you laugh out loud twice!
-                  </p>
                 </div>
               </>
             )}

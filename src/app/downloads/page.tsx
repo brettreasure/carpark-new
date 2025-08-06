@@ -125,15 +125,13 @@ export default function Downloads() {
                 <h2 className="text-4xl font-bold text-dark-green mb-8 text-center">Thank you so much!</h2>
                 
                 <div className="text-center">
-                  <button
-                    onClick={() => {
-                      // TODO: Replace with actual download link
-                      alert('Download will be implemented here');
-                    }}
-                    className="w-full bg-dark-green hover:bg-dark-green/90 text-white font-bold py-6 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-xl"
+                  <a
+                    href="/Not_bad_for_a_carpark.pdf"
+                    download="Not_bad_for_a_carpark.pdf"
+                    className="inline-block w-full bg-dark-green hover:bg-dark-green/90 text-white font-bold py-6 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-xl text-center"
                   >
                     Download "Not bad for a carpark"
-                  </button>
+                  </a>
                 </div>
               </>
             )}

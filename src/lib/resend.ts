@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-const resendClient = new Resend('re_6ApdTWuw_CmtZM88iB5vuhEehRjN5PNsP');
+const resendClient = new Resend(process.env.RESEND_API_KEY || 're_6ApdTWuw_CmtZM88iB5vuhEehRjN5PNsP');
 
 // Wrapper with timeout for Resend calls
 export const resend = {

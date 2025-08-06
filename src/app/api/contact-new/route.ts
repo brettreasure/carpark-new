@@ -28,9 +28,9 @@ export async function POST(request: NextRequest) {
 
     console.log('About to insert into database...');
     
-    // Insert into contacts table with timeout
+    // Insert into contact_messages table with timeout
     const insertPromise = supabaseAdmin
-      .from('contacts')
+      .from('contact_messages')
       .insert({
         name,
         email,
@@ -67,16 +67,21 @@ export async function POST(request: NextRequest) {
     // Send notification email
     try {
       console.log('About to send email notification...');
+      console.log('Email config:', { from: EMAIL_FROM, to: EMAIL_REPLY_TO });
       const emailTemplate = createContactNotificationEmailTemplate(name, email, message);
+      console.log('Email template created, subject:', emailTemplate.subject);
       
-      const emailPromise = resend.emails.send({
+      const emailData = {
         from: EMAIL_FROM,
         to: EMAIL_REPLY_TO,
         subject: emailTemplate.subject,
         html: emailTemplate.html,
         text: emailTemplate.text,
         reply_to: email,
-      });
+      };
+      console.log('Sending email with data:', JSON.stringify(emailData, null, 2));
+      
+      const emailPromise = resend.emails.send(emailData);
 
       const emailTimeoutPromise = new Promise((_, reject) =>
         setTimeout(() => reject(new Error('Email timeout after 8 seconds')), 8000)

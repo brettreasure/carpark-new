@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import { resend, EMAIL_FROM, EMAIL_REPLY_TO } from '@/lib/resend';
+import { createContributionNotificationEmailTemplate } from '@/lib/email-templates';
 
 export async function POST(request: NextRequest) {
   try {
@@ -59,6 +61,37 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to submit contribution' },
         { status: 500 }
       );
+    }
+
+    // Send notification email
+    try {
+      console.log('About to send contribution email notification...');
+      const emailTemplate = createContributionNotificationEmailTemplate(
+        name, 
+        email, 
+        reviewLink, 
+        comment || '', 
+        wantsCredit || false
+      );
+      
+      const emailPromise = resend.emails.send({
+        from: EMAIL_FROM,
+        to: EMAIL_REPLY_TO,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
+        text: emailTemplate.text,
+        reply_to: email,
+      });
+
+      const emailTimeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Email timeout after 8 seconds')), 8000)
+      );
+
+      await Promise.race([emailPromise, emailTimeoutPromise]);
+      console.log('Contribution email sent successfully!');
+    } catch (emailError) {
+      console.error('Email failed but database insert succeeded:', emailError);
+      // Continue - don't fail the request if email fails
     }
 
     return NextResponse.json({

@@ -220,3 +220,128 @@ ${message}
 Submitted on ${new Date().toLocaleString()}
   `.trim()
 });
+
+export const createContributionNotificationEmailTemplate = (name: string, email: string, reviewLink: string, comment: string, wantsCredit: boolean) => ({
+  subject: `New review contribution from ${name}`,
+  html: `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Review Contribution</title>
+        <style>
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+          }
+          .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+          .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #5d7a8a;
+          }
+          .title {
+            color: #5d7a8a;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #5d7a8a;
+            padding: 20px;
+            margin: 20px 0;
+          }
+          .label {
+            font-weight: bold;
+            color: #5d7a8a;
+            margin-bottom: 5px;
+          }
+          .value {
+            margin-bottom: 15px;
+          }
+          .link {
+            color: #5d7a8a;
+            word-break: break-all;
+          }
+          .comment-content {
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            white-space: pre-wrap;
+          }
+          .credit-badge {
+            display: inline-block;
+            background-color: ${wantsCredit ? '#e67e22' : '#6c757d'};
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1 class="title">New Review Contribution</h1>
+          </div>
+          
+          <div class="info-box">
+            <div class="label">From:</div>
+            <div class="value">${name} <span class="credit-badge">${wantsCredit ? 'Wants Credit' : 'No Credit'}</span></div>
+            
+            <div class="label">Email:</div>
+            <div class="value"><a href="mailto:${email}">${email}</a></div>
+            
+            <div class="label">Google Review Link:</div>
+            <div class="value"><a href="${reviewLink}" class="link">${reviewLink}</a></div>
+            
+            ${comment ? `
+            <div class="label">Comment:</div>
+            <div class="comment-content">${comment}</div>
+            ` : ''}
+          </div>
+          
+          <div class="footer">
+            <p>Submitted on ${new Date().toLocaleString()}</p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `,
+  text: `
+New Review Contribution
+
+From: ${name}
+Email: ${email}
+Credit Requested: ${wantsCredit ? 'Yes' : 'No'}
+
+Google Review Link:
+${reviewLink}
+
+${comment ? `Comment:\n${comment}\n` : ''}
+Submitted on ${new Date().toLocaleString()}
+  `.trim()
+});

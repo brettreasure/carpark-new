@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
+import { resend, EMAIL_FROM, EMAIL_REPLY_TO } from '@/lib/resend';
+import { createContactNotificationEmailTemplate } from '@/lib/email-templates';
 
 export async function POST(request: NextRequest) {
   console.log('Contact API called!');
@@ -26,15 +28,13 @@ export async function POST(request: NextRequest) {
 
     console.log('About to insert into database...');
     
-    // TEST: Insert into contributions table with timeout
+    // Insert into contacts table with timeout
     const insertPromise = supabaseAdmin
-      .from('contributions')
+      .from('contacts')
       .insert({
         name,
         email,
-        review_link: 'https://google.com/maps/test',
-        comment: message,
-        wants_credit: false,
+        message,
       });
 
     // Add 8-second timeout (well under Vercel's 10s limit)
@@ -63,6 +63,31 @@ export async function POST(request: NextRequest) {
     }
 
     console.log('Database insert completed successfully!');
+
+    // Send notification email
+    try {
+      console.log('About to send email notification...');
+      const emailTemplate = createContactNotificationEmailTemplate(name, email, message);
+      
+      const emailPromise = resend.emails.send({
+        from: EMAIL_FROM,
+        to: EMAIL_REPLY_TO,
+        subject: emailTemplate.subject,
+        html: emailTemplate.html,
+        text: emailTemplate.text,
+        reply_to: email,
+      });
+
+      const emailTimeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Email timeout after 8 seconds')), 8000)
+      );
+
+      await Promise.race([emailPromise, emailTimeoutPromise]);
+      console.log('Email sent successfully!');
+    } catch (emailError) {
+      console.error('Email failed but database insert succeeded:', emailError);
+      // Continue - don't fail the request if email fails
+    }
 
     return NextResponse.json({
       message: 'Thank you for your message! We\'ll get back to you soon.',

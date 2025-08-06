@@ -59,7 +59,7 @@ export default function Downloads() {
           
           <div className="prose prose-lg max-w-none text-foreground mb-8">
             <p className="text-xl leading-relaxed text-center">
-              Join the list to trigger the download of an Advance Reader Copy.
+              Join the list to trigger the download of an <span className="whitespace-nowrap">Advance Reader Copy</span>.
             </p>
             
             <p className="text-center">
@@ -70,8 +70,6 @@ export default function Downloads() {
           <div className="bg-cream/50 rounded-2xl p-8 border-2 border-orange/20">
             {!showDownload ? (
               <>
-                <h2 className="text-2xl font-bold text-dark-green mb-6 text-center">Stupid Form</h2>
-                
                 {error && (
                   <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
                     {error}
@@ -98,7 +96,7 @@ export default function Downloads() {
                   
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-dark-green mb-2">
-                      Valid email address
+                      Email address
                     </label>
                     <input
                       type="email"
@@ -118,13 +116,9 @@ export default function Downloads() {
                     disabled={loading}
                     className="w-full bg-orange hover:bg-orange/90 disabled:bg-orange/50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
                   >
-                    {loading ? 'Sending...' : 'Request Review Copy'}
+                    {loading ? 'Sending...' : 'REVEAL'}
                   </button>
                 </form>
-                
-                <p className="text-sm text-blue-gray mt-4 text-center">
-                  Just fill out the form to get your download link.
-                </p>
               </>
             ) : (
               <>

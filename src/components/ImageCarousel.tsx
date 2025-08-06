@@ -19,6 +19,8 @@ const ImageCarousel = () => {
     { src: '/snippets/3_Filo2.png', alt: 'Page 3' },
     { src: '/snippets/4_Wund1.png', alt: 'Page 4' },
     { src: '/snippets/5_Wund2.png', alt: 'Page 5' },
+    { src: '/snippets/6_Stir1.png', alt: 'Page 6' },
+    { src: '/snippets/6_Stir2.png', alt: 'Page 6' },
     { src: '/snippets/7_Recy1.png', alt: 'Page 7' },
     { src: '/snippets/8_Recy2.png', alt: 'Page 8' },
     { src: '/snippets/9_Recy3.png', alt: 'Page 9' },

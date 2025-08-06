@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
 
     // Generate verification token
     const verificationToken = crypto.randomBytes(32).toString('hex');
+    console.log('Processing download request for:', { name, email });
 
     // Check if email already exists
     const { data: existingUser, error: checkError } = await supabaseAdmin
@@ -97,13 +98,20 @@ export async function POST(request: NextRequest) {
       }
       
       // Send verification email to user
-      await resend.emails.send({
+      console.log('About to send verification email...');
+      console.log('Verification email config:', { from: EMAIL_FROM, to: email, subject: emailTemplate.subject });
+      
+      const verificationEmailData = {
         from: EMAIL_FROM,
         to: email,
         subject: emailTemplate.subject,
         html: emailTemplate.html,
         text: emailTemplate.text,
-      });
+      };
+      
+      console.log('Sending verification email to user:', email);
+      const verificationResult = await resend.emails.send(verificationEmailData);
+      console.log('Verification email result:', verificationResult);
 
       // Send notification email to admin
       try {

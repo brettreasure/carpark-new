@@ -1,5 +1,5 @@
 export const createVerificationEmailTemplate = (name: string, verificationUrl: string) => ({
-  subject: 'Verify your email to download the book',
+  subject: 'Click here to download "Not bad for a carpark"',
   html: `
     <!DOCTYPE html>
     <html>
@@ -78,10 +78,10 @@ export const createVerificationEmailTemplate = (name: string, verificationUrl: s
           <div class="content">
             <p>Hi ${name},</p>
             
-            <p>Thanks for your interest in downloading the book! To complete your request and get access to the download, please verify your email address by clicking the button below:</p>
+            <p>Thanks for your interest in downloading "Not bad for a carpark"! To complete your request and get access to the download, please verify your email address by clicking the button below:</p>
             
             <div style="text-align: center;">
-              <a href="${verificationUrl}" class="button">Verify Email & Download</a>
+              <a href="${verificationUrl}" class="button">Click here to download "Not bad for a carpark"</a>
             </div>
             
             <p>If the button doesn't work, you can copy and paste this link into your browser:</p>
@@ -103,7 +103,7 @@ export const createVerificationEmailTemplate = (name: string, verificationUrl: s
   text: `
 Hi ${name},
 
-Thanks for your interest in downloading the book! To complete your request and get access to the download, please verify your email address by visiting this link:
+Thanks for your interest in downloading "Not bad for a carpark"! To complete your request and get access to the download, please verify your email address by visiting this link:
 
 ${verificationUrl}
 

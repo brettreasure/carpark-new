@@ -11,7 +11,7 @@ export default function About() {
       <div className="container mx-auto px-6 py-12 max-w-4xl">
         <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border-l-8 border-orange">
           <h1 className="text-4xl md:text-5xl font-bold text-dark-green mb-8 text-center">
-            About the Book
+            About the book
           </h1>
           
           <div className="prose prose-lg max-w-none text-foreground space-y-6">

@@ -93,8 +93,8 @@ const ImageCarousel = () => {
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
 
-    if (isLeftSwipe) prevImage();
-    if (isRightSwipe) nextImage();
+    if (isLeftSwipe) nextImage();
+    if (isRightSwipe) prevImage();
   };
 
   // Keyboard navigation

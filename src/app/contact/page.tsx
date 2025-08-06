@@ -53,7 +53,7 @@ export default function Contact() {
       <div className="container mx-auto px-6 py-12 max-w-2xl">
         <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 md:p-12 border-b-8 border-dark-green">
           <h1 className="text-4xl md:text-5xl font-bold text-dark-green mb-8 text-center">
-            Get in Touch
+            Get in touch
           </h1>
           
           <div className="prose prose-lg max-w-none text-foreground mb-8 space-y-4">
@@ -71,6 +71,10 @@ export default function Contact() {
             
             <p className="text-lg font-semibold text-orange">
               Contact me if you can help me fund-raise for Myanmar refugees.
+            </p>
+            
+            <p className="text-lg">
+              No, incredibly, there is not yet a publisher. Suggest one.
             </p>
           </div>
           

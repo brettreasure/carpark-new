@@ -67,7 +67,7 @@ export default function Contribute() {
           
           <div className="prose prose-lg max-w-none text-foreground mb-8">
             <p className="text-xl leading-relaxed text-center">
-              Thanks so much for sending in a Google Review link. I promise to read it. Let me know if you want a credit when I use it, and feel free to add your comment or story about the review.
+              Thanks for sending me a Google Review link - I promise to read it. If you like, add your comment or story about the review (by doing that you're giving me permission to quote you) and tick the box if you want a credit.
             </p>
           </div>
           

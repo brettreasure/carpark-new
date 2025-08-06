@@ -114,7 +114,7 @@ export default function Downloads() {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full bg-orange hover:bg-orange/90 disabled:bg-orange/50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
+                    className="w-full bg-blue-gray hover:bg-blue-gray/90 disabled:bg-blue-gray/50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
                   >
                     {loading ? 'REVEALING...' : 'REVEAL'}
                   </button>

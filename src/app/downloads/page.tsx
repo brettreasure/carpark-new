@@ -10,6 +10,7 @@ export default function Downloads() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const [showDownload, setShowDownload] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +31,8 @@ export default function Downloads() {
 
       if (response.ok) {
         setMessage(data.message);
-        setFormData({ name: '', email: '' });
+        setShowDownload(true);
+        // Keep form data to show personalized message
       } else {
         setError(data.error || 'Something went wrong');
       }
@@ -70,67 +72,95 @@ export default function Downloads() {
           </div>
           
           <div className="bg-cream/50 rounded-2xl p-8 border-2 border-orange/20">
-            <h2 className="text-2xl font-bold text-dark-green mb-6 text-center">Stupid Form</h2>
-            
-            {message && (
-              <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                {message}
-              </div>
-            )}
-            
-            {error && (
-              <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                {error}
-              </div>
-            )}
+            {!showDownload ? (
+              <>
+                <h2 className="text-2xl font-bold text-dark-green mb-6 text-center">Stupid Form</h2>
+                
+                {error && (
+                  <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                    {error}
+                  </div>
+                )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-dark-green mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  disabled={loading}
-                  className="w-full px-4 py-3 border-2 border-orange/20 rounded-lg focus:border-orange focus:outline-none transition-colors disabled:opacity-50"
-                  placeholder="Your name"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-dark-green mb-2">
-                  Valid email address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  disabled={loading}
-                  className="w-full px-4 py-3 border-2 border-orange/20 rounded-lg focus:border-orange focus:outline-none transition-colors disabled:opacity-50"
-                  placeholder="your@email.com"
-                />
-              </div>
-              
-              <button
-                type="submit"
-                disabled={loading}
-                className="w-full bg-orange hover:bg-orange/90 disabled:bg-orange/50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
-              >
-                {loading ? 'Sending...' : 'Request Review Copy'}
-              </button>
-            </form>
-            
-            <p className="text-sm text-blue-gray mt-4 text-center">
-              You&apos;ll receive an email to validate your address before downloading.
-            </p>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-dark-green mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      disabled={loading}
+                      className="w-full px-4 py-3 border-2 border-orange/20 rounded-lg focus:border-orange focus:outline-none transition-colors disabled:opacity-50"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-dark-green mb-2">
+                      Valid email address
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      disabled={loading}
+                      className="w-full px-4 py-3 border-2 border-orange/20 rounded-lg focus:border-orange focus:outline-none transition-colors disabled:opacity-50"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                  
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-orange hover:bg-orange/90 disabled:bg-orange/50 text-white font-bold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl disabled:cursor-not-allowed"
+                  >
+                    {loading ? 'Sending...' : 'Request Review Copy'}
+                  </button>
+                </form>
+                
+                <p className="text-sm text-blue-gray mt-4 text-center">
+                  Just fill out the form to get your download link.
+                </p>
+              </>
+            ) : (
+              <>
+                <h2 className="text-2xl font-bold text-dark-green mb-6 text-center">Thank you, {formData.name}!</h2>
+                
+                {message && (
+                  <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
+                    {message}
+                  </div>
+                )}
+                
+                <div className="text-center space-y-6">
+                  <p className="text-lg text-dark-green">
+                    Your advance reader copy is ready to download:
+                  </p>
+                  
+                  <button
+                    onClick={() => {
+                      // TODO: Replace with actual download link
+                      alert('Download will be implemented here');
+                    }}
+                    className="w-full bg-dark-green hover:bg-dark-green/90 text-white font-bold py-6 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-xl"
+                  >
+                    📖 Download "Not bad for a carpark"
+                  </button>
+                  
+                  <p className="text-sm text-blue-gray">
+                    Remember: write an honest review after it makes you laugh out loud twice!
+                  </p>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

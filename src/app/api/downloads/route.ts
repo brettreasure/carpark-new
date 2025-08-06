@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { supabaseAdmin } from '@/lib/supabase';
 import { resend, EMAIL_FROM, EMAIL_REPLY_TO } from '@/lib/resend';
-import { createVerificationEmailTemplate, createDownloadRequestNotificationTemplate } from '@/lib/email-templates';
+import { createDownloadRequestNotificationTemplate } from '@/lib/email-templates';
 import crypto from 'crypto';
 
 export async function POST(request: NextRequest) {
@@ -88,63 +88,28 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Send verification email using Resend
-    const verificationUrl = `${process.env.NEXT_PUBLIC_APP_URL}/verify?token=${verificationToken}`;
-    const emailTemplate = createVerificationEmailTemplate(name, verificationUrl);
-
+    // Send notification email to admin (no verification email to user needed)
     try {
-      if (!resend) {
-        throw new Error('Email service not configured');
-      }
+      console.log('Sending download request notification...');
+      const notificationTemplate = createDownloadRequestNotificationTemplate(name, email, !!existingUser);
       
-      // Send verification email to user
-      console.log('About to send verification email...');
-      console.log('Verification email config:', { from: EMAIL_FROM, to: email, subject: emailTemplate.subject });
-      
-      const verificationEmailData = {
+      await resend.emails.send({
         from: EMAIL_FROM,
-        to: email,
-        subject: emailTemplate.subject,
-        html: emailTemplate.html,
-        text: emailTemplate.text,
-      };
-      
-      console.log('Sending verification email to user:', email);
-      const verificationResult = await resend.emails.send(verificationEmailData);
-      console.log('Verification email result:', verificationResult);
-
-      // Send notification email to admin
-      try {
-        console.log('Sending download request notification...');
-        const notificationTemplate = createDownloadRequestNotificationTemplate(name, email, !!existingUser);
-        
-        await resend.emails.send({
-          from: EMAIL_FROM,
-          to: EMAIL_REPLY_TO,
-          subject: notificationTemplate.subject,
-          html: notificationTemplate.html,
-          text: notificationTemplate.text,
-          reply_to: email,
-        });
-        console.log('Download notification email sent successfully!');
-      } catch (notificationError) {
-        console.error('Notification email failed:', notificationError);
-        // Don't fail the request if notification fails
-      }
-
-      return NextResponse.json({
-        message: 'Verification email sent! Check your inbox.',
+        to: EMAIL_REPLY_TO,
+        subject: notificationTemplate.subject,
+        html: notificationTemplate.html,
+        text: notificationTemplate.text,
+        reply_to: email,
       });
-    } catch (emailError) {
-      console.error('Email sending error:', emailError);
-      
-      // If email fails, still return success but log the error
-      // The user record is already created, so they can potentially retry
-      return NextResponse.json({
-        message: 'Verification email sent! Check your inbox.',
-        warning: 'If you don\'t receive an email, please try again later.',
-      });
+      console.log('Download notification email sent successfully!');
+    } catch (notificationError) {
+      console.error('Notification email failed:', notificationError);
+      // Don't fail the request if notification fails
     }
+
+    return NextResponse.json({
+      message: 'Great! Your download is ready below.',
+    });
 
   } catch (error) {
     console.error('API error:', error);

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Terms and Conditions | Not bad for a carpark',
@@ -21,7 +22,7 @@ export default function Terms() {
             </div>
             
             <p>
-              Please read these Terms and Conditions carefully before using our website www.notbadforacarpark.com (the "Site"). By accessing or using the Site, you agree to comply with and be bound by these Terms and Conditions.
+              Please read these Terms and Conditions carefully before using my website www.notbadforacarpark.com (the "Site"). By accessing or using the Site, you agree to comply with and be bound by these Terms and Conditions.
             </p>
             
             <div>
@@ -41,28 +42,28 @@ export default function Terms() {
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">3. Comments and Contributions</h3>
               <p>
-                By submitting a comment or any other contribution to the website, you grant the website owner the right to use, modify, reproduce, and publish your comment in future works, including but not limited to books, articles, or other publications. If you do not wish for your comment to be used, please do not submit it.
+                By submitting a comment or any other contribution to the website, you grant me the right to use, modify, reproduce, and publish your comment in future works, including but not limited to books, articles, or other publications. If you do not wish for your comment to be used, please do not submit it.
               </p>
             </div>
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">4. Privacy</h3>
               <p>
-                Your use of the Site is also governed by our Privacy Policy, which outlines how your personal information is collected, used, and shared.
+                Your use of the Site is also governed by my <Link href="/privacy" className="text-orange hover:underline">Privacy Policy</Link>, which outlines how your personal information is collected, used, and shared.
               </p>
             </div>
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">5. Limitation of Liability</h3>
               <p>
-                The Site and its content are provided "as is" without any warranties, express or implied. We do not guarantee the accuracy, completeness, or reliability of any content on the Site and are not responsible for any damages resulting from the use of the Site.
+                The Site and its content are provided "as is" without any warranties, express or implied. I do not guarantee the accuracy, completeness, or reliability of any content on the Site and am not responsible for any damages resulting from the use of the Site.
               </p>
             </div>
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">6. Modifications to the Terms</h3>
               <p>
-                We reserve the right to modify these Terms and Conditions at any time. Any changes will be posted on this page, and the "Effective Date" will be updated accordingly.
+                I reserve the right to modify these Terms and Conditions at any time. Any changes will be posted on this page, and the "Effective Date" will be updated accordingly.
               </p>
             </div>
             

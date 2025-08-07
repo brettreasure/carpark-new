@@ -21,12 +21,12 @@ export default function Privacy() {
             </div>
             
             <p>
-              This Privacy Policy outlines the types of personal data we collect, how we use it, and how we protect it in compliance with the General Data Protection Regulation (GDPR) and Australian Privacy Principles (APPs) under the Privacy Act 1988.
+              This Privacy Policy outlines the types of personal data I collect, how I use it, and how I protect it in compliance with the General Data Protection Regulation (GDPR) and Australian Privacy Principles (APPs) under the Privacy Act 1988.
             </p>
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">1. Information We Collect</h3>
-              <p>We may collect the following types of personal information:</p>
+              <p>I may collect the following types of personal information:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Email addresses:</strong> When you subscribe to our newsletter, make a purchase, or submit a comment.</li>
                 <li><strong>Comments:</strong> Any feedback, opinions, or comments submitted via forms on the website.</li>
@@ -35,21 +35,21 @@ export default function Privacy() {
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">2. How We Use Your Information</h3>
-              <p>We use the information we collect to:</p>
+              <p>I use the information I collect to:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li>Provide you with updates and information about our book, writing, and related products.</li>
-                <li>Respond to comments, questions, or requests submitted via our website.</li>
-                <li>Improve the user experience on our website.</li>
+                <li>Provide you with updates and information about my book, writing, and related products.</li>
+                <li>Respond to comments, questions, or requests submitted via my website.</li>
+                <li>Improve the user experience on my website.</li>
               </ul>
             </div>
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">3. Sharing Your Information</h3>
               <p>
-                Until and unless we advise a change to this policy, your email address will not be passed on to any third parties for marketing purposes. The only exception is if we have a business relationship with a publisher or third-party party in connection with this website or my writing projects.
+                Until and unless I advise a change to this policy, your email address will not be passed on to any third parties for marketing purposes. The only exception is if I have a business relationship with a publisher or third-party party in connection with this website or my writing projects.
               </p>
               <p>
-                We may share your information with trusted partners or service providers who assist in operating our website, conducting business, or providing services to you. These third parties are obligated not to disclose or use your information for any other purpose.
+                I may share your information with trusted partners or service providers who assist in operating my website, conducting business, or providing services to you. These third parties are obligated not to disclose or use your information for any other purpose.
               </p>
             </div>
             
@@ -74,20 +74,20 @@ export default function Privacy() {
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">6. Security</h3>
               <p>
-                We take appropriate technical and organizational measures to safeguard your personal data from unauthorized access, alteration, or destruction. However, no data transmission over the internet can be guaranteed 100% secure.
+                I take appropriate technical and organizational measures to safeguard your personal data from unauthorized access, alteration, or destruction. However, no data transmission over the internet can be guaranteed 100% secure.
               </p>
             </div>
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">7. Changes to This Privacy Policy</h3>
               <p>
-                We reserve the right to amend this Privacy Policy in the future. If any changes are made, they will be posted on this website, and we will update the "Effective Date" above. It is your responsibility to review this Privacy Policy periodically for any changes.
+                I reserve the right to amend this Privacy Policy in the future. If any changes are made, they will be posted on this website, and I will update the "Effective Date" above. It is your responsibility to review this Privacy Policy periodically for any changes.
               </p>
             </div>
             
             <div>
               <h3 className="text-xl font-bold text-dark-green mb-3">8. Contact Us</h3>
-              <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+              <p>If you have any questions or concerns about this Privacy Policy or my data practices, please contact me at:</p>
               <p><strong>Email:</strong> <a href="mailto:treasure@freebeer.com.au" className="text-orange hover:underline">treasure@freebeer.com.au</a></p>
             </div>
           </div>

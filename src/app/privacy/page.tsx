@@ -16,7 +16,6 @@ export default function Privacy() {
           
           <div className="prose prose-lg max-w-none text-foreground space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-dark-green mb-2">Privacy Policy for Not Bad for a Carpark</h2>
               <p className="text-lg font-semibold text-orange">Effective Date: 7 August, 2025</p>
             </div>
             

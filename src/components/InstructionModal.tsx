@@ -42,7 +42,7 @@ const InstructionModal = ({ show, onClose }: InstructionModalProps) => {
         {/* Content */}
         <div className="text-center">
           <div className="text-lg font-semibold text-gray-800 mb-2">
-            📖 Navigation Guide
+            Navigation
           </div>
           <p className="text-gray-600 leading-relaxed">
             Use arrows to turn pages. Actual Google Reviews are in black text. 

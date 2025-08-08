@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import InstructionModal from './InstructionModal';
 
 interface CarouselImage {
   src: string;
@@ -12,6 +13,9 @@ const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [showInstructions, setShowInstructions] = useState(false);
+  const [carouselLoaded, setCarouselLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const images: CarouselImage[] = [
     { src: '/snippets/1_Cover.png', alt: 'Book Cover' },
@@ -97,6 +101,48 @@ const ImageCarousel = () => {
     if (isRightSwipe) prevImage();
   };
 
+  // Detect mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                            window.innerWidth <= 768;
+      setIsMobile(isMobileDevice);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Carousel loading and instruction modal timing
+  useEffect(() => {
+    setCarouselLoaded(true);
+    
+    if (isMobile) {
+      // For mobile: show modal immediately on first page load
+      const timer = setTimeout(() => setShowInstructions(true), 500);
+      return () => clearTimeout(timer);
+    } else {
+      // For desktop: normal 2-second delay
+      const timer = setTimeout(() => setShowInstructions(true), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile]);
+
+  // Mobile fallback: show modal on any touch interaction if not shown yet
+  useEffect(() => {
+    if (!isMobile) return;
+    
+    const handleTouch = () => {
+      if (!showInstructions && carouselLoaded) {
+        setShowInstructions(true);
+      }
+    };
+
+    document.addEventListener('touchstart', handleTouch, { once: true, passive: true });
+    return () => document.removeEventListener('touchstart', handleTouch);
+  }, [showInstructions, carouselLoaded, isMobile]);
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -111,20 +157,22 @@ const ImageCarousel = () => {
   return (
     <div className="h-[90vh] flex items-center justify-center bg-gradient-to-br from-cream via-blue-gray/10 to-orange/5 relative">
       {/* Navigation Arrows */}
-      <button
-        onClick={prevImage}
-        className="absolute left-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
-        aria-label="Previous image"
-      >
-        <svg
-          className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+      {currentIndex > 0 && (
+        <button
+          onClick={prevImage}
+          className="absolute left-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
+          aria-label="Previous image"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-        </svg>
-      </button>
+          <svg
+            className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+      )}
 
       <button
         onClick={nextImage}
@@ -160,6 +208,11 @@ const ImageCarousel = () => {
         </div>
       </div>
 
+      {/* Instruction Modal */}
+      <InstructionModal 
+        show={showInstructions} 
+        onClose={() => setShowInstructions(false)} 
+      />
     </div>
   );
 };

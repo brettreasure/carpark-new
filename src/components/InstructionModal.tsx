@@ -5,18 +5,22 @@ import { useState, useEffect } from 'react';
 interface InstructionModalProps {
   show: boolean;
   onClose: () => void;
+  isMobile?: boolean; 
 }
 
-const InstructionModal = ({ show, onClose }: InstructionModalProps) => {
+const InstructionModal = ({ show, onClose, isMobile = false }: InstructionModalProps) => {
   useEffect(() => {
     if (show) {
-      const timer = setTimeout(() => {
-        onClose();
-      }, 7000); // 7 seconds
+        // Mobile: 5 seconds, Desktop: 7 seconds  
+        const duration = isMobile ? 5000 : 7000;
+        const timer = setTimeout(() => {
+          onClose();
+        }, duration);
+      
 
       return () => clearTimeout(timer);
     }
-  }, [show, onClose]);
+  }, [show, onClose,isMobile]);
 
   if (!show) return null;
 
@@ -52,7 +56,7 @@ const InstructionModal = ({ show, onClose }: InstructionModalProps) => {
         
         {/* Auto-close indicator */}
         <div className="mt-4 h-1 bg-gray-200 rounded-full overflow-hidden">
-          <div className="h-full bg-orange rounded-full animate-grow" />
+        <div className={`h-full bg-orange rounded-full ${isMobile ? 'animate-grow-mobile' : 'animate-grow'}`} />
         </div>
       </div>
     </div>

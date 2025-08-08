@@ -119,7 +119,7 @@ const ImageCarousel = () => {
     setCarouselLoaded(true);
     
     if (isMobile) {
-      // For mobile: show modal immediately on first page load
+      // For mobile: show modal after 2 seconds
       const timer = setTimeout(() => setShowInstructions(true), 2000);
       return () => clearTimeout(timer);
     } else {
@@ -199,7 +199,8 @@ const ImageCarousel = () => {
       {/* Instruction Modal */}
       <InstructionModal 
         show={showInstructions} 
-        onClose={() => setShowInstructions(false)} 
+        onClose={() => setShowInstructions(false)}
+        isMobile={isMobile}
       />
     </div>
   );

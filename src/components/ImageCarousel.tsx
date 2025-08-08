@@ -129,19 +129,7 @@ const ImageCarousel = () => {
     }
   }, [isMobile]);
 
-  // Mobile fallback: show modal on any touch interaction if not shown yet
-  useEffect(() => {
-    if (!isMobile) return;
-    
-    const handleTouch = () => {
-      if (!showInstructions && carouselLoaded) {
-        setShowInstructions(true);
-      }
-    };
 
-    document.addEventListener('touchstart', handleTouch, { once: true, passive: true });
-    return () => document.removeEventListener('touchstart', handleTouch);
-  }, [showInstructions, carouselLoaded, isMobile]);
 
   // Keyboard navigation
   useEffect(() => {

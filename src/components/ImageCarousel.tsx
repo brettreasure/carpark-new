@@ -120,7 +120,7 @@ const ImageCarousel = () => {
     
     if (isMobile) {
       // For mobile: show modal immediately on first page load
-      const timer = setTimeout(() => setShowInstructions(true), 500);
+      const timer = setTimeout(() => setShowInstructions(true), 2000);
       return () => clearTimeout(timer);
     } else {
       // For desktop: normal 2-second delay

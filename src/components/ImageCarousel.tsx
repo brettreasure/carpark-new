@@ -186,35 +186,23 @@
           onTouchEnd={onTouchEnd}
         >
           <div className="relative h-full max-h-[80vh] aspect-[2/3] bg-black shadow-2xl rounded-lg overflow-hidden">
-            {/* Desktop arrows positioned relative to actual image */}
+            {/* TEST Desktop arrows - bright and obvious */}
             {currentIndex > 0 && (
               <button
                 onClick={prevImage}
-  className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full mr-2 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
+                className="hidden md:block absolute left-4 top-4 z-50 p-4 bg-red-500 text-white rounded-full shadow-xl"
+                aria-label="Previous image"
               >
-                <svg
-                  className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
+                ←
               </button>
             )}
 
             <button
               onClick={nextImage}
-  className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-full ml-2 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"              aria-label="Next image"
+              className="hidden md:block absolute right-4 top-4 z-50 p-4 bg-blue-500 text-white rounded-full shadow-xl"
+              aria-label="Next image"
             >
-              <svg
-                className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
+              →
             </button>
 
             <Image

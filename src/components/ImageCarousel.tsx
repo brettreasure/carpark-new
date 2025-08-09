@@ -190,8 +190,7 @@
             {currentIndex > 0 && (
               <button
                 onClick={prevImage}
-                className="hidden md:block absolute left-[-3rem] top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white 
-  rounded-full shadow-lg transition-all duration-200 group"
+  className="hidden md:block absolute -left-12 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
                 aria-label="Previous image"
               >
                 <svg
@@ -207,8 +206,7 @@
 
             <button
               onClick={nextImage}
-              className="hidden md:block absolute right-[-3rem] top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white 
-  rounded-full shadow-lg transition-all duration-200 group"
+  className="hidden md:block absolute -right-12 top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
               aria-label="Next image"
             >
               <svg

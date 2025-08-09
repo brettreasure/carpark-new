@@ -184,16 +184,51 @@ const ImageCarousel = () => {
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
       >
-        <div className="relative h-full max-h-[80vh] aspect-[2/3] bg-black shadow-2xl rounded-lg overflow-hidden">
-          <Image
-            src={images[currentIndex].src}
-            alt={images[currentIndex].alt}
-            fill
-            className="object-contain"
-            priority
-            sizes="(max-width: 768px) 90vw, 50vw"
-          />
-        </div>
+<div className="relative h-full max-h-[80vh] aspect-[2/3] bg-black shadow-2xl rounded-lg overflow-hidden">
+    {/* Desktop arrows positioned relative to actual image */}
+    {currentIndex > 0 && (
+      <button
+        onClick={prevImage}
+        className="hidden md:block absolute left-[-3rem] top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full
+   shadow-lg transition-all duration-200 group"
+        aria-label="Previous image"
+      >
+        <svg
+          className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+    )}
+
+    <button
+      onClick={nextImage}
+      className="hidden md:block absolute right-[-3rem] top-1/2 -translate-y-1/2 z-10 p-2 bg-white/80 hover:bg-white rounded-full 
+  shadow-lg transition-all duration-200 group"
+      aria-label="Next image"
+    >
+      <svg
+        className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <Image
+      src={images[currentIndex].src}
+      alt={images[currentIndex].alt}
+      fill
+      className="object-contain"
+      priority
+      sizes="(max-width: 768px) 90vw, 50vw"
+    />
+  </div>   
       </div>
 
       {/* Instruction Modal */}

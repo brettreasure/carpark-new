@@ -131,51 +131,40 @@ const ImageCarousel = () => {
 
 
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
-    };
-
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [nextImage, prevImage]);
-
-  return (
-    <div className="h-[90vh] flex items-center justify-center bg-gradient-to-br from-cream via-blue-gray/10 to-orange/5 relative">
-      {/* Navigation Arrows */}
-      {currentIndex > 0 && (
-        <button
-          onClick={prevImage}
-          className="absolute left-4 md:left-[calc(50%-20rem-0.5rem)] z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
-          aria-label="Previous image"
-        >
-          <svg
-            className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-        </button>
-      )}
-
-      <button
-        onClick={nextImage}
-        className="absolute right-4 md:right-[calc(50%-20rem-0.5rem)] z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg 
-        transition-all duration-200 group"
+  // Keyboard  {/* Mobile Navigation Arrows - positioned at screen edges */}
+  {currentIndex > 0 && (
+    <button
+      onClick={prevImage}
+      className="md:hidden absolute left-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 
+  group"
+      aria-label="Previous image"
+    >
+      <svg
+        className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
       >
-        <svg
-          className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-      </button>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+  )}
+
+  <button
+    onClick={nextImage}
+    className="md:hidden absolute right-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 
+  group"
+    aria-label="Next image"
+  >
+    <svg
+      className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
 
       {/* Image Container */}
       <div 

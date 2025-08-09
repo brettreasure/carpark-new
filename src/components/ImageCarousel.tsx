@@ -148,7 +148,7 @@ const ImageCarousel = () => {
       {currentIndex > 0 && (
         <button
           onClick={prevImage}
-          className="absolute left-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
+          className="absolute left-4 md:left-[calc(50%-20rem-0.5rem)] z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
           aria-label="Previous image"
         >
           <svg
@@ -164,7 +164,7 @@ const ImageCarousel = () => {
 
       <button
         onClick={nextImage}
-        className="absolute right-4 md:right-[calc(50%-20rem-3rem)] z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg 
+        className="absolute right-4 md:right-[calc(50%-20rem-0.5rem)] z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg 
         transition-all duration-200 group"
       >
         <svg

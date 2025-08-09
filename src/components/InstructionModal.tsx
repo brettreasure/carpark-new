@@ -49,7 +49,7 @@ const InstructionModal = ({ show, onClose, isMobile = false }: InstructionModalP
             Navigation
           </div>
           <p className="text-gray-600 leading-relaxed">
-            Use arrows to turn pages. Actual Google Reviews are in black text. 
+            Use arrows to flip pages. Actual Google Reviews are in black text. 
             Bret's responses are in <span className="text-red-600 font-medium">red</span>.
           </p>
         </div>

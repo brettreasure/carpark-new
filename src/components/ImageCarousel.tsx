@@ -87,7 +87,7 @@
     };
 
     const onTouchMove = (e: React.TouchEvent) => {
-      setTouchEnd(e.targetTouches[0.clientX);
+      setTouchEnd(e.targetTouches[0].clientX);
     };
 
     const onTouchEnd = () => {

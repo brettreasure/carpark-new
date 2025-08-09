@@ -164,8 +164,8 @@ const ImageCarousel = () => {
 
       <button
         onClick={nextImage}
-        className="absolute right-4 z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg transition-all duration-200 group"
-        aria-label="Next image"
+        className="absolute right-4 md:right-[calc(50%-20rem-3rem)] z-10 p-2 bg-white/80 hover:bg-white rounded-full shadow-lg 
+        transition-all duration-200 group"
       >
         <svg
           className="w-6 h-6 text-dark-green group-hover:text-orange transition-colors"

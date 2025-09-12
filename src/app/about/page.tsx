@@ -35,13 +35,23 @@ export default function About() {
               Join FlibbyFlobby, Pants Magee, Bombshell Tans and GorillaWithAGun, as they swing from temper tantrum to &apos;I&apos;m Not Worthy&apos; adoration.
             </p>
             
-            <div className="text-center mt-8">
-              <a 
-                href="/downloads" 
-                className="inline-block bg-dark-green hover:bg-dark-green/90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
-              >
-                Download it
-              </a>
+            <div className="text-center mt-8 space-y-4">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="/downloads" 
+                  className="inline-block bg-dark-green hover:bg-dark-green/90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
+                >
+                  eBook
+                </a>
+                <a 
+                  href="https://www.amazon.com.au/dp/B0FQD23JGR/ref=sr_1_1?crid=10PW0HIV6BX9T&dib=eyJ2IjoiMSJ9.YTmIViUR87prPBljsR3AlA.IgrFdFoEmGhUQw6_0LV4qFP7G3-WOpVj858zMt4LDlk&dib_tag=se&keywords=not+bad+for+a+carpark&qid=1757687819&sprefix=not+bad+for+a+carpark%2Caps%2C1165&sr=8-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-orange hover:bg-orange/90 text-white font-bold py-4 px-8 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl text-lg"
+                >
+                  Amazon
+                </a>
+              </div>
             </div>
           </div>
           

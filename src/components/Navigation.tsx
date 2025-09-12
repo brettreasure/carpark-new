@@ -32,6 +32,11 @@ const Navigation = () => {
       icon: null
     },
     { 
+      href: '/musical', 
+      label: 'Musical',
+      icon: null
+    },
+    { 
       href: '/contact', 
       label: 'Contact',
       icon: (

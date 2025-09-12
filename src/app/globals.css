@@ -61,3 +61,7 @@ body {
 .animate-grow {
   animation: grow 7s linear forwards;
 }
+
+.animate-grow-mobile {
+  animation: grow 5s linear forwards;
+}

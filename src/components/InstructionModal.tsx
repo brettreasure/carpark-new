@@ -11,8 +11,8 @@ interface InstructionModalProps {
 const InstructionModal = ({ show, onClose, isMobile = false }: InstructionModalProps) => {
   useEffect(() => {
     if (show) {
-        // Mobile: 5 seconds, Desktop: 7 seconds  
-        const duration = isMobile ? 5000 : 7000;
+        // Mobile: 5 seconds, Desktop: 3.5 seconds  
+        const duration = isMobile ? 5000 : 3500;
         const timer = setTimeout(() => {
           onClose();
         }, duration);
@@ -46,10 +46,10 @@ const InstructionModal = ({ show, onClose, isMobile = false }: InstructionModalP
         {/* Content */}
         <div className="text-center">
           <div className="text-lg font-semibold text-gray-800 mb-2">
-            Navigation
+            Use arrows to flip pages
           </div>
           <p className="text-gray-600 leading-relaxed">
-            Use arrows to flip pages. Actual Google Reviews are in black text. 
+            Actual Google Reviews are in black text. 
             Bret's responses are in <span className="text-red-600 font-medium">red</span>.
           </p>
         </div>

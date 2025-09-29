@@ -35,6 +35,51 @@ export default function Musical() {
           </div>
         </div>
       </div>
+
+      {/* Bottom Text Section */}
+      <div className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Park at the Bret Treasure</h2>
+          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            So there's this guy, Bret Treasure,<br />
+            who's written a book about car parks,<br />
+            and he has this romantic conceit that after he dies,<br />
+            someone might name a car park after him...
+          </p>
+          <a
+            href="/Park_at_the_Bret_Treasure.mp3"
+            target="_blank"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            Play the song
+          </a>
+        </div>
+      </div>
+
+      {/* Pizza Section */}
+      <div className="py-12 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Bring back the pizza</h2>
+          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            You'll really have to read the book to get all the references in this song, but here's a taste:
+          </p>
+          <div className="mb-6">
+            <img 
+              src="/pizza.png" 
+              alt="Pizza" 
+              className="mx-auto max-w-full"
+              style={{ maxWidth: '480px' }}
+            />
+          </div>
+          <a
+            href="/Bring_back_the_pizza.mp3"
+            target="_blank"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            Play the song
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

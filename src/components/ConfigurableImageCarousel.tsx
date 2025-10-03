@@ -20,6 +20,7 @@ const ConfigurableImageCarousel = ({ images }: ConfigurableImageCarouselProps) =
   const [showInstructions, setShowInstructions] = useState(false);
   const [carouselLoaded, setCarouselLoaded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [hasShownInstructions, setHasShownInstructions] = useState(false);
 
   const nextImage = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -71,28 +72,35 @@ const ConfigurableImageCarousel = ({ images }: ConfigurableImageCarouselProps) =
     
     if (isMobile) {
       // For mobile: show modal immediately on first page load
-      const timer = setTimeout(() => setShowInstructions(true), 500);
+      const timer = setTimeout(() => {
+        setShowInstructions(true);
+        setHasShownInstructions(true);
+      }, 500);
       return () => clearTimeout(timer);
     } else {
       // For desktop: normal 2-second delay
-      const timer = setTimeout(() => setShowInstructions(true), 2000);
+      const timer = setTimeout(() => {
+        setShowInstructions(true);
+        setHasShownInstructions(true);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [isMobile]);
 
   // Mobile fallback: show modal on any touch interaction if not shown yet
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile || hasShownInstructions) return;
     
     const handleTouch = () => {
       if (!showInstructions && carouselLoaded) {
         setShowInstructions(true);
+        setHasShownInstructions(true);
       }
     };
 
     document.addEventListener('touchstart', handleTouch, { once: true, passive: true });
     return () => document.removeEventListener('touchstart', handleTouch);
-  }, [showInstructions, carouselLoaded, isMobile]);
+  }, [showInstructions, carouselLoaded, isMobile, hasShownInstructions]);
 
   // Keyboard navigation
   useEffect(() => {

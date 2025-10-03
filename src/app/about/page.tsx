@@ -61,6 +61,51 @@ export default function About() {
               Right handed, average height. Good with words.
             </p>
           </div>
+
+          <div className="mt-8 bg-blue-gray/10 rounded-2xl p-8 border-l-4 border-blue-gray">
+            <h2 className="text-2xl font-bold text-dark-green mb-6">Reviews</h2>
+            <div className="space-y-6 text-foreground">
+              <div className="border-b border-gray-200 pb-4">
+                <p className="text-lg italic mb-2">Very, very funny</p>
+                <p className="text-sm font-semibold text-dark-green">Tim G.</p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-4">
+                <p className="text-lg italic mb-2">Love it. Very funny and there are some real interesting reviews! Some people!</p>
+                <p className="text-sm font-semibold text-dark-green">Patrick TT</p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-4">
+                <p className="text-lg italic mb-2">Witty, sarcastic, OMG!!</p>
+                <p className="text-sm font-semibold text-dark-green">Tara-Lea M.</p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-4">
+                <p className="text-lg italic mb-2">Strangely hypnotic</p>
+                <p className="text-sm font-semibold text-dark-green">Thomas S.</p>
+              </div>
+              
+              <div className="border-b border-gray-200 pb-4">
+                <div className="text-lg italic mb-2 space-y-3">
+                  <p>Before reading it, I thought Google Reviews were where boomers went to yell at restaurants for not having table service. Now I leave poetic essays about the ambience of petrol stations and question the existential worth of public toilets.</p>
+                  
+                  <p>Takes us on a journey through the murky world of online judgment. From the savage elegance of the one-star takedown to the cultish devotion of the five-star love letter.</p>
+                  
+                  <p>I laughed. I cried. I almost left a review halfway through this review.</p>
+                  
+                  <p>This book will inspire you to reconsider everything: your coffee, your dentist, and the philosophical meaning of star ratings.</p>
+                  
+                  <p>Final verdict: 5 stars. Would review again.</p>
+                </div>
+                <p className="text-sm font-semibold text-dark-green">Chris C.</p>
+              </div>
+              
+              <div>
+                <p className="text-lg italic mb-2">Not bad for a book about reviews. 5 stars</p>
+                <p className="text-sm font-semibold text-dark-green">Jamie S.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

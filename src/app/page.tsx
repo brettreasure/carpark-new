@@ -34,7 +34,7 @@ export default function Home() {
       <div className="py-12 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-dark-green mb-8">Launch Event</h2>
+            <h2 className="text-3xl font-bold text-dark-green mb-8">Launch Event: 19 Oct 2025</h2>
             <div className="flex justify-center">
               <a 
                 href="https://www.facebook.com/share/1EdVMS2rUc/"

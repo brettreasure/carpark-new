@@ -24,7 +24,7 @@ export default function Musical() {
           <div className="flex justify-center">
             <div className="relative w-full max-w-sm aspect-[9/16] bg-black rounded-lg overflow-hidden shadow-2xl">
               <iframe
-                src="https://youtube.com/embed/fKNuhSseJK4"
+                src="https://www.youtube-nocookie.com/embed/fKNuhSseJK4"
                 title="Musical Video"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

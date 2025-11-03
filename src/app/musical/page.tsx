@@ -80,6 +80,31 @@ export default function Musical() {
           </a>
         </div>
       </div>
+
+      {/* Gratitude Section */}
+      <div className="py-12 bg-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-6">Gratitude</h2>
+          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            Give it out. It's laudable.
+          </p>
+          <div className="mb-6">
+            <img 
+              src="/poodle.png" 
+              alt="Poodle" 
+              className="mx-auto max-w-full"
+              style={{ maxWidth: '480px' }}
+            />
+          </div>
+          <a
+            href="/Gratitude.mp3"
+            target="_blank"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+          >
+            Play the song
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

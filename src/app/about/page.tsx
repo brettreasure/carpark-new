@@ -66,6 +66,11 @@ export default function About() {
             <h2 className="text-2xl font-bold text-dark-green mb-6">Reviews</h2>
             <div className="space-y-6 text-foreground">
               <div className="border-b border-gray-200 pb-4">
+                <p className="text-lg italic mb-2">Absolutely loving this book. Have laughed till tears roll down. Already shared/ suggested to multiple people. Great Christmas present for those oh-so-difficult to buy for techy types like my brother!</p>
+                <p className="text-sm font-semibold text-dark-green">Jodie K.</p>
+              </div>
+
+              <div className="border-b border-gray-200 pb-4">
                 <p className="text-lg italic mb-2">Very, very funny</p>
                 <p className="text-sm font-semibold text-dark-green">Tim G.</p>
               </div>
@@ -74,7 +79,12 @@ export default function About() {
                 <p className="text-lg italic mb-2">Love it. Very funny and there are some real interesting reviews! Some people!</p>
                 <p className="text-sm font-semibold text-dark-green">Patrick TT</p>
               </div>
-              
+
+              <div className="border-b border-gray-200 pb-4">
+                <p className="text-lg italic mb-2">Who would have thought a book about Google reviews could be so surprisingly delightful? It&apos;s funny, clever and full of charm. Now, whenever I&apos;m scrolling through reviews for something I want to buy or somewhere I want to visit, I no longer see it as a chore. Instead, I look for the humour in them, the little bits of absurdity. This book changed how I see something as ordinary as a Google review. It&apos;s a joyful reminder to find the absurd and delightful in everyday life. I highly recommend it.</p>
+                <p className="text-sm font-semibold text-dark-green">Amanda L.</p>
+              </div>
+
               <div className="border-b border-gray-200 pb-4">
                 <p className="text-lg italic mb-2">Witty, sarcastic, OMG!!</p>
                 <p className="text-sm font-semibold text-dark-green">Tara-Lea M.</p>

@@ -346,6 +346,121 @@ Submitted on ${new Date().toLocaleString()}
   `.trim()
 });
 
+export const createShowEnquiryNotificationEmailTemplate = (name: string, email: string, enquiryType: string, message: string) => ({
+  subject: `New show enquiry (${enquiryType}) from ${name}`,
+  html: `
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>New Show Enquiry</title>
+        <style>
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+          }
+          .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+          .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e67e22;
+          }
+          .title {
+            color: #e67e22;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+          }
+          .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #e67e22;
+            padding: 20px;
+            margin: 20px 0;
+          }
+          .label {
+            font-weight: bold;
+            color: #e67e22;
+            margin-bottom: 5px;
+          }
+          .value {
+            margin-bottom: 15px;
+          }
+          .type-badge {
+            display: inline-block;
+            background-color: #e67e22;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+          }
+          .message-content {
+            background-color: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 15px;
+            white-space: pre-wrap;
+          }
+          .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 14px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <div class="header">
+            <h1 class="title">New Show Enquiry</h1>
+          </div>
+
+          <div class="info-box">
+            <div class="label">From:</div>
+            <div class="value">${name} <span class="type-badge">${enquiryType}</span></div>
+
+            <div class="label">Email:</div>
+            <div class="value"><a href="mailto:${email}">${email}</a></div>
+
+            <div class="label">Message:</div>
+            <div class="message-content">${message}</div>
+          </div>
+
+          <div class="footer">
+            <p>Submitted on ${new Date().toLocaleString()}</p>
+          </div>
+        </div>
+      </body>
+    </html>
+  `,
+  text: `
+New Show Enquiry
+
+From: ${name}
+Email: ${email}
+Type: ${enquiryType}
+
+Message:
+${message}
+
+Submitted on ${new Date().toLocaleString()}
+  `.trim()
+});
+
 export const createDownloadRequestNotificationTemplate = (name: string, email: string, isExistingUser: boolean) => ({
   subject: `New download request from ${name}`,
   html: `

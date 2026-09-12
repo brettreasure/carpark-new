@@ -28,23 +28,18 @@ const Navigation = () => {
       icon: null
     },
     {
+      href: '/downloads',
+      label: 'Review',
+      icon: null
+    },
+    {
       href: '/musical',
       label: 'Musical',
       icon: null
     },
     ...(SEASON_CONFIRMED ? [{ href: '/show', label: 'Show', icon: null }] : []),
     {
-      href: '/downloads',
-      label: 'Review',
-      icon: null
-    },
-    { 
-      href: '/musical', 
-      label: 'Musical',
-      icon: null
-    },
-    { 
-      href: '/contact', 
+      href: '/contact',
       label: 'Contact',
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

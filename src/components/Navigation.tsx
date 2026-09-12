@@ -2,13 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { SEASON_CONFIRMED } from '@/lib/show-config';
 
 const Navigation = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { 
-      href: '/', 
+    {
+      href: '/',
       label: 'Home',
       icon: (
         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -16,18 +17,24 @@ const Navigation = () => {
         </svg>
       )
     },
-    { 
-      href: '/about', 
+    {
+      href: '/about',
       label: 'About',
       icon: null
     },
-    { 
-      href: '/contribute', 
+    {
+      href: '/contribute',
       label: 'Share',
       icon: null
     },
-    { 
-      href: '/downloads', 
+    {
+      href: '/musical',
+      label: 'Musical',
+      icon: null
+    },
+    ...(SEASON_CONFIRMED ? [{ href: '/show', label: 'Show', icon: null }] : []),
+    {
+      href: '/downloads',
       label: 'Review',
       icon: null
     },

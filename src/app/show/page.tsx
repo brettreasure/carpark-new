@@ -64,18 +64,18 @@ const REVIEWS = [
     body: "It's a day of mourning",
   },
   {
-    place: 'The Good Guys, Cairns',
-    reviewer: 'Emma Marshall',
-    meta: '2 reviews',
+    place: 'Wild Bakery',
+    reviewer: 'Natasha Nicole',
+    meta: '1 review',
     stars: 1,
-    body: 'Went into Goodguys Cairns to buy a playstation for Christmas. Got told they were up on the shelf and that was pretty much it; so we left and bought somewhere else.',
+    body: 'Please for the love of God bring back the extensive pizza range.',
   },
   {
-    place: 'Cairns Central Shopping Centre',
-    reviewer: 'Ceiling Fan',
-    meta: '6 reviews · 1 photo',
-    stars: 5,
-    body: 'Came here for the grimace shake and lost my friend in the process it was an actual fever dream … after my first grimace shake I went back for more. But this was a mistake as when I got home I violently threw up everywhere.',
+    place: 'Heirisson Island',
+    reviewer: 'Rémy Bailly',
+    meta: '1 review',
+    stars: 4,
+    body: 'There are no hedgehogs on the island, which is not very pretty.',
   },
 ];
 
@@ -101,7 +101,7 @@ const SPEC_ROWS: [string, string][] = [
   ['Rigging', 'None. No flying, fly bar, truss or rigging points'],
   ['Power', 'Two 10-amp outlets'],
   ['Operation', 'Self-operated from a laptop and clicker. No dedicated LX or sound op required'],
-  ['Room', 'Works from 50 to 150 seats. Cabaret seating preferred over rows'],
+  ['Room', '50 to 200 seats. Works with rows or cabaret seating'],
 ];
 
 export default function ShowPage() {
@@ -175,26 +175,27 @@ export default function ShowPage() {
         </div>
       </section>
 
-      {/* What it is */}
+      {/* What is this? */}
       <section className="bg-cream">
         <div className="container mx-auto px-6 py-16 max-w-3xl">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-green mb-8 text-center">
-            What it is
+            What is this?
           </h2>
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 border-l-8 border-orange space-y-6 text-lg leading-relaxed text-foreground">
             <p>
-              The ridiculous, entitled, hysterical, righteous, incoherent opinions that people
-              launch at the internet before they&apos;ve had a chance to cool down a little. As
-              well as the unexpectedly gracious.
+              Google Reviews: the ridiculous, entitled, hysterical, righteous, incoherent opinions
+              that people launch at the internet before they&apos;ve had a chance to cool down a
+              little. As well as the unexpectedly gracious.
             </p>
             <p>
-              The audience and I read the reviews together. They guess the ratings before the
-              reveal, they argue about them, and they bring their own.
+              The audience and I read the reviews together. The audience see the words and
+              graphics on screen. For each review we speculate: what might have led up to this
+              situation? How did others react? What happened next?
             </p>
             <p>
               Some of these reviews beg to be turned into songs and I&apos;ve reluctantly written
-              them. The songs land as a series of callbacks, so by the time one arrives the room
-              already owns the joke. In-jokes are the best jokes.
+              them. The song lyrics are a series of callbacks to reviews they&apos;ve just heard
+              and laughed at. In-jokes are the best.
             </p>
             <p className="font-semibold text-dark-green">
               Somewhere between interactive stand-up and comedic cabaret. Forty-five minutes, no
@@ -240,10 +241,11 @@ export default function ShowPage() {
             The archive is national. The show is local by design.
           </p>
           <p className="text-xl font-semibold text-blue-gray mb-8 leading-relaxed">
-            {PERTH_VENUES.join(' · ')} · and every car park between them
+            {PERTH_VENUES.join(' · ')} · and many of your favourite carparks
           </p>
           <p className="text-lg text-foreground italic">
-            Ordinary places, ridiculous reviews, and everybody recognises the feeling.
+            Ordinary places, ridiculous reviews, and everybody knows exactly what we&apos;re
+            talking about.
           </p>
         </div>
       </section>
@@ -253,8 +255,8 @@ export default function ShowPage() {
         <div className="container mx-auto px-6 py-16 max-w-2xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-dark-green mb-6">The songs</h2>
           <p className="text-lg text-foreground leading-relaxed mb-8">
-            Some reviews beg to be set to music. In the show they arrive as callbacks — by the
-            time a song starts, the room already knows the review it is built on.
+            We take on the big themes: gratitude, acknowledgement, frustration and
+            everyone&apos;s desire to have a car park named after them.
           </p>
           <a
             href="/musical"

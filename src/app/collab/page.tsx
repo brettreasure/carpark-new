@@ -456,13 +456,11 @@ export default function CollabPage() {
               <div className="space-y-4 text-lg text-foreground leading-relaxed">
                 <p>
                   Marketing consultant. Thirty years writing content and running campaigns for
-                  small business and allied health. I wrote the book, built the brand, and I
-                  perform the show.
+                  small business and allied health.
                 </p>
                 <p>
                   The show has been performed three times, to rooms of 40 to 50, and it got
-                  laughs the whole way through on all three. That&apos;s a small sample and
-                  I&apos;d rather quote it accurately than inflate it.
+                  laughs the whole way through on all three.
                 </p>
               </div>
             </div>

@@ -90,9 +90,13 @@ const PERTH_VENUES = [
 
 const SPEC_ROWS: [string, string][] = [
   ['Running time', '45 minutes, no interval'],
-  ['Cast', 'One performer'],
+  ['Cast', 'One performer, plus two audience members on stage'],
+  ['Staging', 'Minimum 4m wide × 3m deep playing area; two chairs or stools on stage'],
   ['Bump in / out', '30 minutes / 15 minutes'],
-  ['Sound', 'House PA, one wired handheld or headset mic'],
+  [
+    'Sound',
+    'House PA; one wired handheld or headset for the host, plus two radio handhelds for the on-stage participants (one shared at a pinch)',
+  ],
   ['Vision', 'Projector and screen, or 65"+ monitor, HDMI. Minimum 2m image width'],
   [
     'Lighting',
@@ -101,7 +105,7 @@ const SPEC_ROWS: [string, string][] = [
   ['Rigging', 'None. No flying, fly bar, truss or rigging points'],
   ['Power', 'Two 10-amp outlets'],
   ['Operation', 'Self-operated from a laptop and clicker. No dedicated LX or sound op required'],
-  ['Room', '50 to 200 seats. Works with rows or cabaret seating'],
+  ['Room', 'Works from 50 to 150 seats. Cabaret seating preferred over rows'],
 ];
 
 export default function ShowPage() {
@@ -329,25 +333,17 @@ export default function ShowPage() {
               className="w-40 h-40 sm:w-44 sm:h-44 rounded-full object-cover shadow-lg flex-shrink-0"
             />
             <p className="text-lg text-foreground leading-relaxed">
-              <a
-                href="https://www.brettreasure.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-orange hover:text-dark-green underline font-semibold"
-              >
-                Bret Treasure
-              </a>{' '}
-              is a Perth writer and content creator working on behaviour science and AI. The
-              book, Not Bad For A Car Park, is available on{' '}
+              Bret Treasure is a Perth writer and marketing consultant. He wrote{' '}
               <a
                 href="https://www.amazon.com.au/Not-bad-carpark-moments-Reviews/dp/B0FQD23JGR/ref=sr_1_1?crid=1IA9SW9Q64JJI&dib=eyJ2IjoiMSJ9.YTmIViUR87prPBljsR3AlA.sl3sKjLntJJIuGzEP67kGbL7jkMvreF5NtlCgkd5818&dib_tag=se&keywords=not+bad+for+a+carpark&qid=1789266460&sprefix=not+bad+for+a+carpark%2Caps%2C289&sr=8-1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-orange hover:text-dark-green underline font-semibold"
               >
-                Amazon
+                Not Bad For A Car Park
               </a>
-              .
+              , a book assembled from real Google reviews, and performs the live show of the
+              same name.
             </p>
           </div>
         </div>

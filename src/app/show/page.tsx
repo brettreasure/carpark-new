@@ -238,14 +238,14 @@ export default function ShowPage() {
             This season plays Perth
           </h2>
           <p className="text-lg text-foreground mb-8">
-            The archive is national. The show is local by design.
+            The archive is national. Show content is local.
           </p>
           <p className="text-xl font-semibold text-blue-gray mb-8 leading-relaxed">
             {PERTH_VENUES.join(' · ')} · and many of your favourite carparks
           </p>
           <p className="text-lg text-foreground italic">
-            Ordinary places, ridiculous reviews, and everybody knows exactly what we&apos;re
-            talking about.
+            Ordinary places, ridiculous reviews, and everybody knows exactly what
+            we&apos;re{' '}talking{' '}about.
           </p>
         </div>
       </section>
@@ -308,12 +308,8 @@ export default function ShowPage() {
           </h2>
           <div className="prose prose-lg max-w-none text-foreground mb-8 text-center space-y-4">
             <p>
-              The show travels light and rebuilds itself for wherever it is playing. It has
-              played corporate rooms, community rooms and festival rooms.
-            </p>
-            <p>
-              Available for conference dinners, staff events, libraries, writers&apos; festivals,
-              bookshop events and regional touring.
+              The show travels light and staging is very flexible. Suitable for conference
+              dinners and award nights, closing keynotes and writers&apos; festivals.
             </p>
           </div>
           <ShowEnquiryForm />
@@ -333,12 +329,25 @@ export default function ShowPage() {
               className="w-40 h-40 sm:w-44 sm:h-44 rounded-full object-cover shadow-lg flex-shrink-0"
             />
             <p className="text-lg text-foreground leading-relaxed">
-              Bret Treasure is a Perth writer and marketing consultant. He wrote{' '}
-              <a href="/" className="text-orange hover:text-dark-green underline font-semibold">
-                Not Bad For A Car Park
+              <a
+                href="https://www.brettreasure.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange hover:text-dark-green underline font-semibold"
+              >
+                Bret Treasure
+              </a>{' '}
+              is a Perth writer and content creator working on behaviour science and AI. The
+              book, Not Bad For A Car Park, is available on{' '}
+              <a
+                href="https://www.amazon.com.au/Not-bad-carpark-moments-Reviews/dp/B0FQD23JGR/ref=sr_1_1?crid=1IA9SW9Q64JJI&dib=eyJ2IjoiMSJ9.YTmIViUR87prPBljsR3AlA.sl3sKjLntJJIuGzEP67kGbL7jkMvreF5NtlCgkd5818&dib_tag=se&keywords=not+bad+for+a+carpark&qid=1789266460&sprefix=not+bad+for+a+carpark%2Caps%2C289&sr=8-1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-orange hover:text-dark-green underline font-semibold"
+              >
+                Amazon
               </a>
-              , a book assembled from real Google reviews, and performs the live show of the
-              same name.
+              .
             </p>
           </div>
         </div>

@@ -333,7 +333,7 @@ export default function ShowPage() {
               className="w-40 h-40 sm:w-44 sm:h-44 rounded-full object-cover shadow-lg flex-shrink-0"
             />
             <p className="text-lg text-foreground leading-relaxed">
-              Bret Treasure is a Perth writer and marketing consultant. He wrote{' '}
+              Bret Treasure is a Perth writer and marketing consultant. He&apos;s the author of{' '}
               <a
                 href="https://www.amazon.com.au/Not-bad-carpark-moments-Reviews/dp/B0FQD23JGR/ref=sr_1_1?crid=1IA9SW9Q64JJI&dib=eyJ2IjoiMSJ9.YTmIViUR87prPBljsR3AlA.sl3sKjLntJJIuGzEP67kGbL7jkMvreF5NtlCgkd5818&dib_tag=se&keywords=not+bad+for+a+carpark&qid=1789266460&sprefix=not+bad+for+a+carpark%2Caps%2C289&sr=8-1"
                 target="_blank"
@@ -341,9 +341,8 @@ export default function ShowPage() {
                 className="text-orange hover:text-dark-green underline font-semibold"
               >
                 Not Bad For A Car Park
-              </a>
-              , a book assembled from real Google reviews, and performs the live show of the
-              same name.
+              </a>{' '}
+              and the creator of several behaviour science apps.
             </p>
           </div>
         </div>

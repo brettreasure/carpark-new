@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           {/* Copyright - Left aligned */}
           <div className="text-white/90 text-sm order-2 md:order-1">
-            Copyright © 2025 Bret Treasure. All rights reserved.
+            Copyright © 2026 Bret Treasure. All rights reserved.
           </div>
           
           {/* Links - Right aligned */}

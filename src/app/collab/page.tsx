@@ -102,12 +102,7 @@ export default function CollabPage() {
           <Marker n="01" label="The premise" />
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-8 md:p-12 border-l-8 border-orange space-y-6 text-lg leading-relaxed text-foreground mb-8">
             <p>
-              You open Google Maps to check a café&apos;s opening hours. Twenty minutes later you
-              are deep inside a feud between the owner and a customer who&apos;s decided that the
-              world needs to know about an overpriced coffee.
-            </p>
-            <p>
-              Everyone has read a review and thought: &ldquo;Get some perspective. Nobody
+              Everyone has read a Google review and thought: &ldquo;Get some perspective. Nobody
               died.&rdquo; But if you read enough reviews you&apos;ll realise that some people
               have decided Google Reviews is a platform for self-expression and comedy. Nobody
               has made a show out of it, until now.
@@ -455,12 +450,8 @@ export default function CollabPage() {
               </h2>
               <div className="space-y-4 text-lg text-foreground leading-relaxed">
                 <p>
-                  Marketing consultant. Thirty years writing content and running campaigns for
-                  small business and allied health.
-                </p>
-                <p>
-                  The show has been performed three times, to rooms of 40 to 50, and it got
-                  laughs the whole way through on all three.
+                  Writer and marketing consultant. 30 years creating campaigns for IT, media and
+                  allied health. Behaviour science geek.
                 </p>
               </div>
             </div>
